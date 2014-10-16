@@ -98,4 +98,9 @@ public class CalculatorTest {
 	public void testBigAndSmall(){
 		Calculator.add("2000,-7");
 	}
+	
+	@Test
+	public void testLongDelimeter(){
+		assertEquals(8, Calculator.add("//;;;\n1;;;5;;;2"));
+	}
 }
