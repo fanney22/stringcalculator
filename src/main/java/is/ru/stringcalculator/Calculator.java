@@ -2,6 +2,7 @@ package is.ru.stringcalculator;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.*;
 
 public class Calculator {
 
@@ -40,12 +41,19 @@ public class Calculator {
 	}
       
     private static int sum(String[] numbers){
- 	    int total = 0;
+ 	    if(containsNegetive(numbers)){
+    	int total = 0;
         for(String number : numbers){
 		    total += toInt(number);
 		}
 		return total;
 		}
+ 	    else {
+ 	    	String ves = "Negatives Not Allowed";
+ 	    	ves += findNegatives(numbers);
+ 	    	throw new IllegalArgumentException(ves);
+ 	    }
+    }
     
     private static String[] findDeliminater(String text){
     	Matcher m = Pattern.compile("//(.*)\n(.*)").matcher(text);
@@ -57,6 +65,28 @@ public class Calculator {
     private static String[] splitNumbers(String numbers, String delimiter)
     {
     	return numbers.split(delimiter);
+    }
+    
+    private static Boolean containsNegetive (String[] numbers){
+    	for(int i= 0; i<numbers.length; i++)
+    	{
+    		if(toInt(numbers[i])<0)
+    		{
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    private static String findNegatives(String[] numbers){
+    	Vector negatives = new Vector();
+    	for(int i= 0; i<numbers.length; i++)
+    	{
+    		if(toInt(numbers[i])<0)
+    		{
+    			 negatives.add(numbers[i]);
+    		}
+    	}
+    	return negatives.toString();
     }
     
     

@@ -68,5 +68,12 @@ public class CalculatorTest {
 	public void testIconAsDelimiter(){
 		assertEquals(7, Calculator.add("//;\n1;2;4"));
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testNegativeNumbers(){
+		Calculator.add("1, -8");
+	
+	}
+
 
 }
