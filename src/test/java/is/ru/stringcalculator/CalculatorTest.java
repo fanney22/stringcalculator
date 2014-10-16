@@ -89,4 +89,9 @@ public class CalculatorTest {
 	public void testOverOnethousand(){
 		assertEquals(7, Calculator.add("1001,3,4"));
 	}
+	
+	@Test
+	public void testOnethousand(){
+		assertEquals(1001, Calculator.add("1000,1"));
+	}
 }
