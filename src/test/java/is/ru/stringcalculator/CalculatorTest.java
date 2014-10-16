@@ -58,5 +58,10 @@ public class CalculatorTest {
 	public void testNewDelimeter(){
 		assertEquals(7, Calculator.add("//k\n1k2k4"));
 	}
+	
+	@Test
+	public void testNewStringDelimiter(){
+		assertEquals(7, Calculator.add("//DJAMM\n1DJAMM2DJAMM4"));
+	}
 
 }
