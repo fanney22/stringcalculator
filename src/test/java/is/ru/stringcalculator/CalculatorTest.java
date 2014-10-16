@@ -27,7 +27,12 @@ public class CalculatorTest {
 	@Test
 	public void testTwoNumbers() {
 		assertEquals(3, Calculator.add("1,2"));
-	}	
+	}
+	
+	@Test
+	public void testSameTwoNumbers(){
+		assertEquals(10, Calculator.add("5,5"));
+	}
 
 	@Test
     public void testMultipleNumbers(){
