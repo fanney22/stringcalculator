@@ -48,5 +48,10 @@ public class CalculatorTest {
 	public void newlineBetweenNumbers(){
 		assertEquals(5, Calculator.add("2\n3"));
 	}
+	
+	@Test
+	public void bothCommasAndNewline(){
+		assertEquals(7, Calculator.add("1\n2,4"));
+	}
 
 }

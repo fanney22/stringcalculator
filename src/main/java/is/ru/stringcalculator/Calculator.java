@@ -6,14 +6,16 @@ public class Calculator {
 		if(text.equals("")){
 			return 0;
 		}
-		if(text.contains(",")){
+		
+		if(text.contains(",") || text.contains("\n"))
+		{
 			return sum(splitNumbers(text));
 		}
-		if(text.contains("\n")){
-			return sum(splitNumbersNewLine(text));
-		}
-		else
+		
+		else{
 			return toInt(text);
+		}
+		
 	}
 
 	private static int toInt(String number){
@@ -21,7 +23,9 @@ public class Calculator {
 	}
 
 	private static String[] splitNumbers(String numbers){
-	    return numbers.split(",");
+	    String newString = numbers.replaceAll("\n", ",");
+	    return newString.split(",");
+	    
 	}
 	
 	private static String[] splitNumbersNewLine(String number){
