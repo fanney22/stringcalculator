@@ -6,8 +6,11 @@ public class Calculator {
 		if(text.equals("")){
 			return 0;
 		}
-		else if(text.contains(",")){
+		if(text.contains(",")){
 			return sum(splitNumbers(text));
+		}
+		if(text.contains("\n")){
+			return sum(splitNumbersNewLine(text));
 		}
 		else
 			return toInt(text);
@@ -19,6 +22,10 @@ public class Calculator {
 
 	private static String[] splitNumbers(String numbers){
 	    return numbers.split(",");
+	}
+	
+	private static String[] splitNumbersNewLine(String number){
+		return number.split("\n");
 	}
       
     private static int sum(String[] numbers){

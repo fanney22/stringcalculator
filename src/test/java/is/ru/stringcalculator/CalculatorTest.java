@@ -43,5 +43,10 @@ public class CalculatorTest {
 	public void testALargeNumberOfNumbers(){
 		assertEquals(21, Calculator.add("1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1"));
 	}
+	
+	@Test
+	public void newlineBetweenNumbers(){
+		assertEquals(5, Calculator.add("2\n3"));
+	}
 
 }
