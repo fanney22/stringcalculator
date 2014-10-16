@@ -11,6 +11,9 @@ public class Calculator {
 			return 0;
 		}
 		if(text.contains("//")){
+			if(text.contains("[")){
+				return sum(splitNumbers(findMultipleDelimeters(text)));
+			}
 			return sum(findDeliminater(text));
 		}
 		
@@ -58,6 +61,20 @@ public class Calculator {
     	String delimiter = m.group(1);
     	String numbers = m.group(2);
     	return splitNumbers(numbers, delimiter);
+    }
+    private static String findMultipleDelimeters(String text){
+    	Matcher m = Pattern.compile("//(.*)\n(.*)").matcher(text);
+    	m.matches();
+    	String delimiter = m.group(1);
+    	String numbers = m.group(2);
+    	
+    	delimiter = delimiter.replaceAll("\\]\\[", "|");
+    	delimiter = delimiter.replaceAll("\\]", "");
+    	delimiter = delimiter.replaceAll("\\[", "");
+    	
+    	numbers = numbers.replaceAll(delimiter, ",");
+    	return numbers;
+    	
     }
     private static String[] splitNumbers(String numbers, String delimiter)
     {

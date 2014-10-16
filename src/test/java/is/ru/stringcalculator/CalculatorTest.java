@@ -103,4 +103,9 @@ public class CalculatorTest {
 	public void testLongDelimeter(){
 		assertEquals(8, Calculator.add("//;;;\n1;;;5;;;2"));
 	}
+	
+	@Test
+	public void multipleDelimeters(){
+		assertEquals(8, Calculator.add("//[x][k]\n1k2x2k3"));
+	}
 }
