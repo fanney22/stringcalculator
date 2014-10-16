@@ -94,4 +94,8 @@ public class CalculatorTest {
 	public void testOnethousand(){
 		assertEquals(1001, Calculator.add("1000,1"));
 	}
+	@Test (expected = IllegalArgumentException.class)
+	public void testBigAndSmall(){
+		Calculator.add("2000,-7");
+	}
 }
