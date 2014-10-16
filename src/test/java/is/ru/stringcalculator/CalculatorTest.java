@@ -105,7 +105,12 @@ public class CalculatorTest {
 	}
 	
 	@Test
-	public void multipleDelimeters(){
+	public void testmultipleDelimeters(){
 		assertEquals(8, Calculator.add("//[x][k]\n1k2x2k3"));
+	}
+	
+	@Test
+	public void testLongDelimeters(){
+		assertEquals(8, Calculator.add("//[Fanney][Hrund]\n1Fanney2Hrund2Fanney3"));
 	}
 }
