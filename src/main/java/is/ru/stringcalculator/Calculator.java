@@ -35,15 +35,12 @@ public class Calculator {
 	    return newString.split(",");
 	    
 	}
-	
-	private static String[] splitNumbersNewLine(String number){
-		return number.split("\n");
-	}
       
     private static int sum(String[] numbers){
- 	    if(containsNegetive(numbers)){
+    	String[] noBiggie = noBig(numbers);
+ 	    if(containsNegetive(noBiggie)){
     	int total = 0;
-        for(String number : numbers){
+        for(String number : noBiggie){
 		    total += toInt(number);
 		}
 		return total;
@@ -88,8 +85,16 @@ public class Calculator {
     	}
     	return negatives.toString();
     }
+    private static String[] noBig(String[] numbers)
+    {
+    	for(int i = 0; i < numbers.length; i++)
+    	{
+    		if(toInt(numbers[i])>1000)
+    		{
+    			numbers[i] = "0";
+    		}
+    	}
+    	return numbers;
+    }
     
-    
-
-
 }

@@ -84,4 +84,9 @@ public class CalculatorTest {
 	public void testMultipleNegitives(){
 		Calculator.add("-1,-2,-3,-4");
 	}
+	
+	@Test
+	public void testOverOnethousand(){
+		assertEquals(7, Calculator.add("1001,3,4"));
+	}
 }
