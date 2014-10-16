@@ -74,6 +74,11 @@ public class CalculatorTest {
 		Calculator.add("1, -8");
 	
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testNegitiveWithDelimeter(){
+		Calculator.add("//u\n1u-1");
+	}
 
 
 }
